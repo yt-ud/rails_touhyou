@@ -1,0 +1,11 @@
+<%= form_with model: Election.new do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit :投票を作る, class:"btn btn-primary" %>
+<% end %>
+

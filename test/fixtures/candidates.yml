@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  election: one
+  name: MyString
+  startdate: 2023-07-25 12:15:23
+  enddate: 2023-07-25 12:15:23
+
+two:
+  user: two
+  election: two
+  name: MyString
+  startdate: 2023-07-25 12:15:23
+  enddate: 2023-07-25 12:15:23
