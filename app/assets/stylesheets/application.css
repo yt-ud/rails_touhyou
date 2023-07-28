@@ -26,11 +26,50 @@ header {
     border-color: black;
 }
 
+body {
+    width: 100%;
+    margin: auto;
+    padding: auto;
+}
+
 .decoration-none {
     text-decoration: none;
 }
 
- 
+.form_column {    
+    width: 350px;
+    margin: auto;
+    padding: auto;
+    display: flex;
+    flex-direction: column;    
+}
+
+.margin-top-field {
+    margin-top: 20px;
+}
+
+.margin-bottom-field {
+    margin-bottom: 20px; 
+}
+
+.margin-top-label {
+    margin-top: 10px;
+}
+
+.margin-bottom-label {
+    margin-bottom: 10px;
+}
+
+.margin-top-button {
+    margin-top: 30px;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 
 

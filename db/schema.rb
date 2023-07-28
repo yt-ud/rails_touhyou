@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_172622) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_060036) do
   create_table "candidates", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "election_id", null: false
     t.string "name"
     t.datetime "startdate"
@@ -20,16 +19,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_172622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["election_id"], name: "index_candidates_on_election_id"
-    t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 
   create_table "elections", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
     t.string "description"
-    t.integer "number_of_votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.datetime "startdate"
+    t.datetime "enddate"
     t.index ["user_id"], name: "index_elections_on_user_id"
   end
 
@@ -43,20 +43,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_172622) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "election_id", null: false
     t.integer "candidate_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
-    t.index ["election_id"], name: "index_votes_on_election_id"
-    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "candidates", "elections"
-  add_foreign_key "candidates", "users"
   add_foreign_key "elections", "users"
   add_foreign_key "votes", "candidates"
-  add_foreign_key "votes", "elections"
-  add_foreign_key "votes", "users"
 end

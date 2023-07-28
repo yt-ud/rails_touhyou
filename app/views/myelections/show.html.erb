@@ -1,0 +1,17 @@
+<div class="flex-column-center">
+    <%= link_to "編集", edit_myelection_path(@myelection.id), class:"decoration-none margin-bottom-field" %>
+    <%= link_to "削除", myelection_path(@myelection.id), data: {turbo_method: :delete}, class:"decoration-none margin-bottom-field" %>
+    <p>【投票室名】</p>
+    <%= @myelection.name %>
+    <p>【詳細】</p>
+    <%= @myelection.description %>
+    <p>【周知用パスワード】</p>
+    <%= @myelection.password_digest %>
+    <p>【作成日】</p>
+    <%= @myelection.created_at.strftime("%Y年%m月%d日%H時%M分") %>
+    <p>【投票開始日時】</p>
+    <%= @myelection.startdate.strftime("%Y年%m月%d日%H時%M分") %>
+    <p>【投票終了日時】</p>
+    <%= @myelection.enddate.strftime("%Y年%m月%d日%H時%M分") %>
+</div>
+

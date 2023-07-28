@@ -1,1 +1,19 @@
-<h1>自作投票の一覧</h1>
+<%= link_to "投票室を作る", new_myelection_path, class:"decoration-none margin-bottom-field" %>
+
+<h4>作成済み投票室</h4>
+<table>
+    <% if @myelection.blank? %>
+        <tr>
+            <th><p>自作の投票はありません。</p></th>
+        </tr>    
+    <% else %>
+        <% @myelection.each do |me| %>
+            <div class="flex-column-center">
+                <tr>
+                    <td><%= link_to me.name, myelection_path(me.id), class:"decoration-none" %></td>
+                    <td><%= link_to me.created_at.strftime("%Y年%m月%d日%H時%M分"), myelection_path(me.id), class:"decoration-none" %>
+                </tr>
+            </div>
+        <% end %>
+    <% end %>
+</table>

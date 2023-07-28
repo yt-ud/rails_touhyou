@@ -1,11 +1,15 @@
-<%= form_with model: Election.new do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.password_field :password_confirmation %>
-    <%= f.submit :投票を作る, class:"btn btn-primary" %>
+<%= form_with url:myelections_path, class:"form_column" do |f| %>
+    <%= f.label :投票ルーム名, class:"margin-top-field margin-bottom-label" %>
+    <%= f.text_field :name, class:"margin-bottom-field" %>
+    <%= f.label :詳細, class:"margin-bottom-label" %>
+    <%= f.text_field :description, class:"margin-bottom-field" %>
+    <%= f.label :投票開始年月日時分, class:"margin-bottom-label" %>
+    <%= f.datetime_field :startdate, class:"margin-bottom-field" %>
+    <%= f.label :投票終了年月日時分, class:"margin-bottom-label" %>
+    <%= f.datetime_field :enddate, class:"margin-bottom-field" %>
+    <%= f.label :周知用パスワード, class:"margin-bottom-label" %>
+    <%= f.text_field :password, class:"margin-bottom-field" %>
+    <%= f.text_field :password_confirmation, class:"margin-bottom-field" %>
+    <%= f.submit :投票を作成, class:"btn btn-primary margin-top-button" %>
 <% end %>
 
