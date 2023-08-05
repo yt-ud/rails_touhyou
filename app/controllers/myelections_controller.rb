@@ -6,10 +6,11 @@ class MyelectionsController < ApplicationController
     def new
     end
 
-    def create
+    def create        
         if (params[:password] == params[:password_confirmation]) && (params[:enddate] > params[:startdate]) && (params[:startdate] > Time.now)
-            myelection = Election.new(name: params[:name], description: params[:description], password_digest: params[:password], startdate: params[:startdate], enddate: params[:enddate], user_id: current_user.id)
-    #        myelection = Election.new(myelection_params)
+            #myelection = current_user.elections.new(myelection_params)
+            #myelection = Election.new(myelection_params.merge(user_id: current_user.id))
+            myelection = Election.new(name: params[:name], description: params[:description], password: params[:password], password_confirmation: params[:password_confirmation], startdate: params[:startdate], enddate: params[:enddate], user_id: current_user.id)            
             if myelection.save
                 redirect_to myelections_path
             else
@@ -25,7 +26,7 @@ class MyelectionsController < ApplicationController
     end
     
     def edit
-        @myelection = Election.find(params[:id])        
+        @myelection = Election.find(params[:id])
     end
 
     def update
@@ -48,7 +49,7 @@ class MyelectionsController < ApplicationController
 
     private
 
-        def myelection_params
-            params.require(:election).permit(:name, :description, :password, :password_confirmation).merge(user_id: current_user.id)
-        end
+    def myelection_params
+        params.require(:election).permit(:name, :description, :startdate, :enddate, :password, :password_confirmation, :user_id)
+    end
 end

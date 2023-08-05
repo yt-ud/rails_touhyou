@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :login_required
+
     def create
         user = User.find_by(email: params[:email])
         if user&& user.authenticate(params[:password])
@@ -14,4 +16,6 @@ class SessionsController < ApplicationController
         log_out if logged_in?
         redirect_to new_user_path
     end
+
+    #ここに、ログインのストロングパラメーターを入れる。
 end

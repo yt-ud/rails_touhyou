@@ -1,4 +1,4 @@
-<%= form_with url:myelectionupdate_path(@myelection.id), method: :put, class:"form_column" do |f| %>
+<%= form_with url:myelection_path(@myelection.id), method: :put, class:"form_column" do |f| %>
     <%= f.label :投票ルーム名, class:"margin-top-field margin-bottom-label" %>
     <%= f.text_field :name, class:"margin-bottom-field", value:@myelection.name %>
     <%= f.label :詳細, class:"margin-bottom-label" %>
@@ -10,6 +10,24 @@
     <%= f.label :周知用パスワード, class:"margin-bottom-label" %>
     <%= f.text_field :password, class:"margin-bottom-field", value:@myelection.password_digest %>
     <%= f.text_field :password_confirmation, class:"margin-bottom-field", value:@myelection.password_digest %>
+    <%= f.label :既存の候補者, class:"margin-bottom-label" %>
+
+
+
+    <%= f.label :候補者を追加, class:"margin-bottom-label" %>
+    <%= f.text_field :newcandidate-name, class:"margin-bottom-field" %>
+    <%= f.text_field :newcandidate-comment, class:"margin-bottom-field" %>
+
+
+    <%= link_to "候補者を追加", candidate_path(c.id), data: {turbo_method: :post}, class:"decoration-none margin-bottom-field" %>
     <%= f.submit :投票室を更新, class:"btn btn-primary margin-top-button" %>
 <% end %>
 
+<%= form_with url:candidate_path, method: :post, class:"form_column" do |f| %>
+<% @myelection.candidates.each do |c| %>
+    <span class="flex-column-center">
+        <%= c.text_field :candidate-name, class:"margin-bottom-field", value:c.name %>
+        <%= c.text_field :candidate-comment, class:"margin-bottom-field", value:c.comment %>
+        <%= link_to "候補者を削除", candidate_path(c.id), data: {turbo_method: :delete}, class:"decoration-none margin-bottom-field" %>
+    </span>
+</end>

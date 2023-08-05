@@ -1,4 +1,7 @@
 class CandidatesController < ApplicationController
+    before_action :new_user_path
+
+
     def index
     end
 

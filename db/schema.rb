@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_060036) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_29_015126) do
   create_table "candidates", force: :cascade do |t|
     t.integer "election_id", null: false
     t.string "name"
-    t.datetime "startdate"
-    t.datetime "enddate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
     t.index ["election_id"], name: "index_candidates_on_election_id"
   end
 

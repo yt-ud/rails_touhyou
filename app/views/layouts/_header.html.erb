@@ -2,7 +2,7 @@
     <% if logged_in? %>
         <%= link_to "アカウント", users_path, class:"decoration-none" %>
         <%= link_to "投票に参加", elections_path, class:"decoration-none" %>
-        <%= link_to "自作の投票", myelections_path, class:"decoration-none" %>
+        <%= link_to "自作の投票室", myelections_path, class:"decoration-none" %>
         <%= link_to "ログアウト", logout_path, class:"decoration-none", data: { turbo_method: :delete } %>
     <% else %>
         <span>投票用アプリ</span>
