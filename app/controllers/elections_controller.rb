@@ -19,6 +19,4 @@ class ElectionsController < ApplicationController
 
     def delete
     end
-
-    private
 end

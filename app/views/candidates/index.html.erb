@@ -1,0 +1,17 @@
+<div class="flex-column-center">
+    <%= link_to "候補者の追加", new_candidate_path(myelection_id: @myelection.id), class:"decoration-none margin-bottom-field" %>
+    <%= link_to "投票室に戻る", myelection_path(@myelection.id), class:"decoration-none margin-bottom-field" %>
+    <p>【投票室名】</p>
+    <%= @myelection.name %>
+    <p>【候補者一覧】</p>
+    <% if @mycandidates %>
+        <% @mycandidates.each do |c| %>
+            <%= c.name+" "+c.comment %>
+            <%= link_to "詳細", candidate_path(c.id), class:"decoration-none margin-bottom-field" %>
+            <%= link_to "削除", candidate_path(c.id), method: :delete, class:"decoration-none margin-bottom-field" %>
+        <% end %>
+    <% else %>
+        <p>候補者はいません。</p>
+    <% end %>
+</div>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_015126) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_06_063238) do
   create_table "candidates", force: :cascade do |t|
     t.integer "election_id", null: false
     t.string "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_015126) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
+    t.string "password"
     t.datetime "startdate"
     t.datetime "enddate"
     t.index ["user_id"], name: "index_elections_on_user_id"

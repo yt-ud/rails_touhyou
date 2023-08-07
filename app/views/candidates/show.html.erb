@@ -1,0 +1,14 @@
+<div class="flex-column-center">
+    <%= link_to "編集", edit_candidate_path(@candidate.id), class:"decoration-none margin-bottom-field" %>
+    <%= link_to "削除", candidate_path(@candidate.id), data: {turbo_method: :delete}, class:"decoration-none margin-bottom-field" %>
+    <%= link_to "候補者一覧に戻る", candidates_path(myelection_id: @myelection.id), class:"decoration-none margin-bottom-field" %>
+    <p>【投票室名】</p>
+    <%= @myelection.name %>
+    <p>【候補者名】</p>
+    <%= @candidate.name %>
+    <p>【一言】</p>
+    <%= @candidate.comment %>
+    <p>【登録日】</p>
+    <%= @candidate.created_at.strftime("%Y年%m月%d日%H時%M分") %>
+</div>
+
